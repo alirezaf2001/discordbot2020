@@ -16,6 +16,7 @@ client.on('message', message =>{
   let cmd = args.shift().toLowerCase();
 
   if(message.author.bot) return;
+  if (!message.content.startsWith(PREFIX)) return;
 
   try{
 
