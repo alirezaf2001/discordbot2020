@@ -28,7 +28,7 @@ exports.run = async (client , message, args , ops )=>{
 
     if(!data.dispatcher) play(client , ops , data);
     else{
-        message.channel.send(`Added to Queue:\`${info.title}\` | Requested By: \`${message.author.id}\``);
+        message.channel.send(`Added to Queue:\`${info.videoDetails.title}\` | Requested By: \`${message.author.id}\``);
     }
 
     ops.active.set(message.guild.id, data);
