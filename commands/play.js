@@ -59,7 +59,7 @@ function finish(client , ops , dispather){
     }else{
         ops.active.delete(dispather.guildID);
 
-        let vc = client.guilds.get(dispather.guildID).me.voice.channel;
+        let vc = client.guilds.cache.get(dispather.guildID).me.voice.channel;
         if (vc) vc.leave();
 
     }
