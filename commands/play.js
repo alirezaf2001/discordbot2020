@@ -26,7 +26,7 @@ exports.run = async (client , message, args , ops )=>{
         announceChannel : message.channel.id
     });
 
-    if(!data.dispather) play(client , ops , data);
+    if(!data.dispatcher) play(client , ops , data);
     else{
         message.channel.send(`Added to Queue:\`${info.title}\` | Requested By: \`${message.author.id}\``);
     }
@@ -38,28 +38,28 @@ exports.run = async (client , message, args , ops )=>{
 async function play(client , ops , data){
     client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing: \`${data.queue[0].songTitle}\` | Requested By: \`${data.queue[0].requester}\``);
 
-    data.dispather = await data.connection.play(ytdl(data.queue[0].url, {filter : 'audioonly'}));
-    data.dispather.guildID = data.guildID;
+    data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, {filter : 'audioonly'}));
+    data.dispatcher.guildID = data.guildID;
 
-    data.dispather.once('finish', function(){
+    data.dispatcher.once('finish', function(){
 
         finish(client , ops ,this);
     });
 }
 
-function finish(client , ops , dispather){
+function finish(client , ops , dispatcher){
 
-    let fetched = ops.active.get(dispather.guildID);
+    let fetched = ops.active.get(dispatcher.guildID);
     fetched.queue.shift();
 
     if (fetched.queue.lenght > 0){
-        ops.active.set(dispather.guildID, fetched);
+        ops.active.set(dispatcher.guildID, fetched);
 
         play(client , ops , fetched);
     }else{
-        ops.active.delete(dispather.guildID);
+        ops.active.delete(dispatcher.guildID);
 
-        let vc = client.guilds.cache.get(dispather.guildID).me.voice.channel;
+        let vc = client.guilds.cache.get(dispatcher.guildID).me.voice.channel;
         if (vc) vc.leave();
 
     }
