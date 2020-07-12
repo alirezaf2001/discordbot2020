@@ -21,7 +21,7 @@ exports.run = async (client, message, args, ops)=>{
     if (fetched.queue[0].voteSkips.length>=required){
         message.channel.send('Successfully skipped song!')
 
-        return fetched.dispatcher.emit('end');
+        return fetched.dispatcher.emit('finish');
     }
 
     message.channel.send(`Successfully voted to skip! ${fetched.queue[0].voteSkips.length}/${required} required`)

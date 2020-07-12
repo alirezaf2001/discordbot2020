@@ -211,6 +211,7 @@ client.on('message', msg=>{
 //     serverQueue.textChannel.send(`Now FUCKING PLAYING: **${song.title}**`);
 //   }
 
+//client.login('NzI4OTczMjMzNjQyMTQzNzY0.XwOBqg.pYWpO_Pg25LS8N3zqLaJ0qvcZ9I');
 
-  client.login(process.env.token);
+ client.login(process.env.token);
 

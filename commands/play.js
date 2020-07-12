@@ -41,9 +41,9 @@ async function play(client , ops , data){
     data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, {filter : 'audioonly'}));
     data.dispatcher.guildID = data.guildID;
 
-    data.dispatcher.once('end', function(){
+    data.dispatcher.once('finish', function(){
 
-        finish(client , ops ,this);
+        finish(client , ops ,this);0
     });
 }
 
@@ -52,7 +52,7 @@ function finish(client , ops , dispatcher){
     let fetched = ops.active.get(dispatcher.guildID);
     fetched.queue.shift();
 
-    if (fetched.queue.lenght > 0){
+    if (fetched.queue.length > 0){
         ops.active.set(dispatcher.guildID, fetched);
 
         play(client , ops , fetched);
