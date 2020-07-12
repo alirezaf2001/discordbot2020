@@ -1,5 +1,4 @@
 const ytdl = require('ytdl-core');
-const { DataResolver } = require('discord.js');
 
 exports.run = async (client , message, args , ops )=>{
 
@@ -21,7 +20,7 @@ exports.run = async (client , message, args , ops )=>{
     if(!data.queue) data.queue = [];
     data.guildID = message.guild.id;
     data.queue.push({
-        songTitle : info.title,
+        songTitle : info.videoDetails.title,
         requester : message.author.tag,
         url : args[0],
         announceChannel : message.channel.id
@@ -37,7 +36,7 @@ exports.run = async (client , message, args , ops )=>{
 }
 
 async function play(client , ops , data){
-    client.channel.get(data.queue[0].announceChannel).send(`Now Playing: \`${data.queue[0].songTitle}\` | Requested By: \`${data.queue[0].requester}\``);
+    client.channels.get(data.queue[0].announceChannel).send(`Now Playing: \`${data.queue[0].songTitle}\` | Requested By: \`${data.queue[0].requester}\``);
 
     data.dispather = await data.connection.play(ytdl(data.queue[0].url, {filter : 'audioonly'}));
     data.dispather.guildID = data.guildID;

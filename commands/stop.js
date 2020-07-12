@@ -1,8 +1,7 @@
-const voiceChannel = message.member.voice.channel;
+
 
 exports.run = (client , message , args , ops) => {
-
-    if (!voiceChannel)
+    if (!message.member.voice.channel)
     return message.channel.send(
       "Get in the GOD FUCKING DAMN VOICE CHANNEL YOU DUMB DUMB :/"
     );
