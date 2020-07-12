@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+const ownerID ='559682780070543360' ;
 const PREFIX = '-';
-const queue = new Map();
+const active = new Map();
 
 client.on('ready', () =>{
     console.log('This bot is online!');
@@ -17,6 +18,12 @@ client.on('message', message =>{
   if(message.author.bot) return;
 
   try{
+
+    let ops = {
+      ownerID : ownerID,
+      active : active
+
+    }
     delete require.cache[require.resolve(`./commands/${cmd}.js`)];
 
     let commandFile = require(`./commands/${cmd}.js`);
@@ -93,6 +100,7 @@ client.on('message', msg=>{
     
 }
 )
+
 
 // client.on("message", async message => {
 //     if (message.author.bot) return;
