@@ -5,6 +5,7 @@ exports.run = (client , message , args , ops) => {
     return message.channel.send(
       "Get in the GOD FUCKING DAMN VOICE CHANNEL YOU DUMB DUMB :/"
     );
+    
     message.guild.me.voice.channel.leave()
 
 

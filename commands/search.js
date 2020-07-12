@@ -4,7 +4,7 @@ exports.run = (client , message , args , ops) =>{
    
 search(args.join('') , function(err , res){
 
-    if (err) return message.channel.send('Sorry, something went wrong.');
+    if (err) return message.channel.send(`Sorry, something went wrong. the error message is: \`${err}\``);
     
     let videos = res.videos.slice(0, 10);
      let resp = '';
