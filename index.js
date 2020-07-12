@@ -23,7 +23,7 @@ client.on('message', message =>{
   try{
     delete require.cache[require.resolve(`discordbot2020/commands/${cmd}.js`)];
 
-    let commandFile = require(`discordbot2020/commmands/${cmd}.js`);
+    let commandFile = require(`discordbot2020/commands/${cmd}.js`);
     commandFile.run(client,message , args);
 
   } catch (e) {
@@ -34,12 +34,16 @@ client.on('message', message =>{
 
 
 client.on('message', msg=>{
+  try{
         var message = msg.content;
         message = message.toLowerCase();
         if((message.includes('who is the good boy'))){
             msg.reply("I AM XD WOOF WOOF");
     
         }
+      }catch (e){
+        console.log(e.stack);
+      }
     })
 
     client.on('message', msg=>{
