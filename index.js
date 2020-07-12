@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const ytSearch = require("yt-search")
-
 const ytdl = require("ytdl-core")
 
 const PREFIX = '-';
