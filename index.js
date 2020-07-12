@@ -21,9 +21,9 @@ client.on('message', message =>{
   if(message.author.bot) return;
 
   try{
-    delete require.cache[require.resolve(`./commands/${cmd}.js`)];
+    delete require.cache[require.resolve(`discordbot2020/commands/${cmd}.js`)];
 
-    let commandFile = require(`./commmands/${cmd}.js`);
+    let commandFile = require(`discordbot2020/commmands/${cmd}.js`);
     commandFile.run(client,message , args);
 
   } catch (e) {
