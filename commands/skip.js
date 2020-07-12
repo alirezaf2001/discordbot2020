@@ -6,7 +6,7 @@ exports.run = async (client, message, args, ops)=>{
     if(!fetched) return message.channel.send('There curently isn\'t any music playing in this channel')
 
     if(message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send('Sorry, you currently are\'t in the same channel as the bot!');
-    let userCount = message.member.voice.channel.size;
+    let userCount = message.member.voice.channel.members.size;
 
     let required = Math.ceil(userCount/2);
 
