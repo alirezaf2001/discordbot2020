@@ -19,7 +19,7 @@ search(args.join('') , function(err , res){
 
      const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
 
-     const collector = message.channle.createMessageCollector(filter);
+     const collector = message.channel.createMessageCollector(filter);
 
      collector.videos = videos;
      collector.once('collect', function(m){
