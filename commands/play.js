@@ -36,7 +36,7 @@ exports.run = async (client , message, args , ops )=>{
 }
 
 async function play(client , ops , data){
-    client.channels.get(data.queue[0].announceChannel).send(`Now Playing: \`${data.queue[0].songTitle}\` | Requested By: \`${data.queue[0].requester}\``);
+    client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing: \`${data.queue[0].songTitle}\` | Requested By: \`${data.queue[0].requester}\``);
 
     data.dispather = await data.connection.play(ytdl(data.queue[0].url, {filter : 'audioonly'}));
     data.dispather.guildID = data.guildID;
