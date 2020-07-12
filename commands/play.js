@@ -44,7 +44,7 @@ async function play(client , ops , data){
     data.dispather.once('finish', function(){
 
         finish(client , ops ,this);
-    })
+    });
 }
 
 function finish(client , ops , dispather){
