@@ -1,18 +1,39 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const client = new Discord.Client();
 
+const ytSearch = require("yt-search")
 
 const ytdl = require("ytdl-core")
 
 const PREFIX = '-';
 const queue = new Map();
 
-bot.on('ready', () =>{
+client.on('ready', () =>{
     console.log('This bot is online!');
 })
 
+ 
+client.on('message', message =>{
 
-    bot.on('message', msg=>{
+  let args = message.content.slice(PREFIX.length).trim().split(' ');
+  let cmd = args.shift().toLowerCase();
+
+  if(message.author.bot) return;
+
+  try{
+    delete require.cache[require.resolve(`./commands/${cmd}.js`)];
+
+    let commandFile = require(`./commmands/${cmd}.js`);
+    commandFile.run(client,message , args);
+
+  } catch (e) {
+    console.log(e.stack);
+  }
+
+})
+
+
+client.on('message', msg=>{
         var message = msg.content;
         message = message.toLowerCase();
         if((message.includes('who is the good boy'))){
@@ -21,7 +42,7 @@ bot.on('ready', () =>{
         }
     })
 
-    bot.on('message', msg=>{
+    client.on('message', msg=>{
         var message = msg.content;
         message = message.toLowerCase();
         if((message.includes('funny'))){
@@ -29,14 +50,14 @@ bot.on('ready', () =>{
     
         }
     })
-bot.on('message', message=>{
+    client.on('message', message=>{
 
     let args = message.content.substring(PREFIX.length).split(" ");
     if (message.author.bot) return;
     switch(args[0]){
-        case 'ping':
-            message.channel.send("POOONNNGGGG")
-            break;
+        // case 'ping':
+        //     message.channel.send("POOONNNGGGG")
+        //     break;
         case 'dick':
             message.channel.send("8=========> this is my dick hah")
             break;
@@ -58,7 +79,7 @@ bot.on('message', message=>{
 
 })
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
     var message = msg.content;
     message = message.toLowerCase();
     if (msg.author.bot) return;
@@ -73,7 +94,7 @@ bot.on('message', msg=>{
 }
 )
 
-bot.on("message", async message => {
+client.on("message", async message => {
     if (message.author.bot) return;
     if (!message.content.startsWith(PREFIX)) return;
   
@@ -188,5 +209,5 @@ bot.on("message", async message => {
 
 
 
-bot.login(process.env.token);
+  client.login(process.env.token);
 
