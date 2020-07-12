@@ -8,7 +8,7 @@ exports.run = async (client , message, args , ops )=>{
         "Get in the GOD FUCKING DAMN VOICE CHANNEL YOU DUMB DUMB :/"
       );
 
-    if (!arge[0]) return message.channel.send('Please put a url to the video after the command.');
+    if (!args[0]) return message.channel.send('Please put a url to the video after the command.');
 
     let validate = await ytdl.validateURL(args[0]);
 
