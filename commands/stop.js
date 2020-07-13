@@ -5,8 +5,13 @@ exports.run = (client , message , args , ops) => {
     return message.channel.send(
       "Get in the GOD FUCKING DAMN VOICE CHANNEL YOU DUMB DUMB :/"
     );
-    
-    message.guild.me.voice.channel.leave()
 
+    let fetched = ops.active.get(message.guild.id);
+
+    for (let i = 1; i < fetched.queue.length+1; i++) {
+        fetched.queue.shift();
+    }
+
+    fetched.dispatcher.end();
 
 }
