@@ -4,7 +4,7 @@ exports.run = (client,message,args,ops)=>{
     if(args[0]){
         if (args[0].includes('@')) {
             if(!args[1]) return message.channel.send('please tell me how many times you want to call!');
-            if(!isNaN(args[1])) return message.channel.send('please put valid number!');
+            if(isNaN(args[1])) return message.channel.send('please put valid number!');
             
             for (let index = 1; index < args[1]+1; index++) {
                 message.channel.send(`${args[0]} you are being called XD`);
