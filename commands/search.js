@@ -12,7 +12,7 @@ search(args.join('') , function(err , res){
          resp += `**[${parseInt(i)+1}]:** \`${videos[i].title}\`\n`;
      }
 
-     resp += `\n**Choose a number between  \`1 to ${videos.length}\``;
+     resp += `\n**Choose a number between**  \`1 - ${videos.length}\``;
 
      message.channel.send(resp);
 
@@ -27,6 +27,7 @@ search(args.join('') , function(err , res){
         let commandFile = require(`./play.js`);
 
         commandFile.run(client, message, [this.videos[parseInt(m.content)-1].url], ops);
+        message.channel.bulkDelete(2);
      });
 })
 }
