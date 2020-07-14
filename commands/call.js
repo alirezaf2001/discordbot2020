@@ -6,7 +6,9 @@ exports.run = (client,message,args,ops)=>{
             if(!args[1]) return message.channel.send('please tell me how many times you want to call!');
             if(isNaN(args[1])) return message.channel.send('please put valid number!');
             const limit = args[1]+1;
-            for (let index = 1; index < limit; index++) {
+            var index = 0;
+
+            while (index < limit) {
                 message.channel.send(`${args[0]} you are being called XD`);
             }
             return;
