@@ -9,7 +9,7 @@ exports.run = (client,message,args,ops)=>{
             for (let index = 1; index < limit; index++) {
                 message.channel.send(`${args[0]} you are being called XD`);
             }
-            
+            return;
         }
     }
 

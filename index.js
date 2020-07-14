@@ -14,7 +14,6 @@ client.on('message', message =>{
 
   let args = message.content.slice(PREFIX.length).trim().split(' ');
   let cmd = args.shift().toLowerCase();
-
   if(message.author.bot) return;
   if (!message.content.startsWith(PREFIX)) return;
 
