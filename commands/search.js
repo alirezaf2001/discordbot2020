@@ -19,8 +19,12 @@ search(args.join('') , function(err , res){
 
      const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
 
-     const collector = message.channel.createMessageCollector(filter);
 
+
+     if (m.content === 0) {
+         return
+        }else{
+    const collector = message.channel.createMessageCollector(filter);
      collector.videos = videos;
      collector.once('collect', function(m){
 
@@ -29,5 +33,6 @@ search(args.join('') , function(err , res){
         commandFile.run(client, message, [this.videos[parseInt(m.content)-1].url], ops);
         message.channel.bulkDelete(2);
      });
+    }
 })
 }
