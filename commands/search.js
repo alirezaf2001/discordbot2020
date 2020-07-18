@@ -12,7 +12,7 @@ search(args.join('') , function(err , res){
          resp += `**[${parseInt(i)+1}]:** \`${videos[i].title}\`\n`;
      }
 
-     resp += `\n**Choose a number between**  \`1 - ${videos.length}\``;
+     resp += `\n**Choose a number between**  \`1 - ${videos.length}\`\n(Or choos \`0\` to Cancel selecting.)`;
 
      message.channel.send(resp);
 
@@ -26,6 +26,8 @@ search(args.join('') , function(err , res){
         collector.videos = videos;
         collector.once('collect', function(m){
             if (parseInt(m.content) === 0) {
+                message.channel.bulkDelete(2);
+                message.channel.send("Selecting has been cancelled!");
                 return;
              }else{
 
