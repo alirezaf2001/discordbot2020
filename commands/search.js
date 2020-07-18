@@ -17,7 +17,7 @@ search(args.join('') , function(err , res){
      message.channel.send(resp);
 
 
-     const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0 && m.content === 0;
+     const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > -1;
 
 
         const collector = message.channel.createMessageCollector(filter)
