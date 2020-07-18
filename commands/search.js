@@ -19,22 +19,22 @@ search(args.join('') , function(err , res){
 
      const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
 
+     if (parseInt(m.content) === 0) {
+        return;
+     }else{
+        const collector = message.channel.createMessageCollector(filter)
 
-    const collector = message.channel.createMessageCollector(filter)
 
+        collector.videos = videos;
+        collector.once('collect', function(m){
+       
 
-     collector.videos = videos;
-     collector.once('collect', function(m){
-        if (parseInt(m.content) === 0) {
-            return;
+                let commandFile = require(`./play.js`);
+
+                commandFile.run(client, message, [this.videos[parseInt(m.content)-1].url], ops);
+                message.channel.bulkDelete(2);
             
-        }else{
-
-            let commandFile = require(`./play.js`);
-
-            commandFile.run(client, message, [this.videos[parseInt(m.content)-1].url], ops);
-            message.channel.bulkDelete(2);
-            }
-        });
+            });
+        }
     })
 }
