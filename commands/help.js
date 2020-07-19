@@ -11,7 +11,7 @@ exports.run = (client, message, args , ops) =>{
          "**-volume**---------------Changes the volume between 1 to 200\n\`-volume 150\`\n"
     ]
     let resp =commands[0];
-    for (let index = 1; index < commands.length+1; index++) {
+    for (let index = 1; index < commands.length; index++) {
         resp += commands[index];
     }
 
