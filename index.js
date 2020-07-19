@@ -8,6 +8,15 @@ client.user.setActivity("-help");
 
 client.on('ready', () =>{
     console.log('This bot is online!');
+	bot.user.setStatus('available');
+	client.user.setActivity("-help");
+	    bot.user.setPresence({
+        game: {
+            name: 'with depression',
+            type: "STREAMING",
+            url: "https://www.twitch.tv/monstercat"
+        }
+    });
 })
 
  
