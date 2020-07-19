@@ -3,11 +3,16 @@ const ytdl = require('ytdl-core');
 exports.run = async (client , message, args , ops )=>{
 
     if (!message.member.voice.channel)
-      return message.channel.send(
-        "Get in the GOD FUCKING DAMN VOICE CHANNEL YOU DUMB DUMB :/"
-      );
+      return
+        const notinvoicechannelEmbaded = new Discord.MessageEmbed()
+      .setColor('#cc0c0c')
+      .setDescription("Get in the GOD FUCKING DAMN VOICE CHANNEL YOU DUMB DUMB :/");
+      message.channel.send(notinvoicechannelEmbaded);
+      const urlerrEmbeded = new Discord.MessageEmbed()
+    .setColor('#cc0c0c')
+    .setDescription('Please put a url to the video after the command.');
 
-    if (!args[0]) return message.channel.send('Please put a url to the video after the command.');
+    if (!args[0]) return message.channel.send(urlerrEmbeded);
 
     let validate = await ytdl.validateURL(args[0]);
 
@@ -34,7 +39,10 @@ exports.run = async (client , message, args , ops )=>{
 
     if(!data.dispatcher) play(client , ops , data);
     else{
-        message.channel.send(`Added to Queue:\`${info.videoDetails.title}\` | Requested By: \`${message.author.id}\``);
+        const addtoqueueEmbeded = new Discord.MessageEmbed()
+    .setColor('#d9eb34')
+    .setDescription(`Added to Queue:\`${info.videoDetails.title}\` | Requested By: \`${message.author.id}\``);
+        message.channel.send(addtoqueueEmbeded);
     }
 
     ops.active.set(message.guild.id, data);
@@ -42,7 +50,13 @@ exports.run = async (client , message, args , ops )=>{
 }
 
 async function play(client , ops , data){
-    client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing: \`${data.queue[0].songTitle}\` | Requested By: \`${data.queue[0].requester}\``);
+    const nowplayingEmbaded = new Discord.MessageEmbed()
+    .setColor('#34eb7d')
+    .setDescription(`Now Playing: \`${data.queue[0].songTitle}\` | Requested By: \`${data.queue[0].requester}\``);
+
+
+
+    client.channels.cache.get(data.queue[0].announceChannel).send(nowplayingEmbaded);
 
     data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, {filter : 'audioonly'}));
     data.dispatcher.guildID = data.guildID;

@@ -12,6 +12,9 @@ exports.run=async(client, message, args, ops) => {
     for (var i=1; i< queue.length; i++){
         resp += `${i}. **${queue[i].songTitle}** -- **Requested By:** *${queue[i].requester}*\n`;
     }
-    message.channel.send(resp);
+    const queueEmbeded = new Discord.MessageEmbed()
+      .setColor('#4640c2')
+      .setDescription(resp);
+    message.channel.send(queueEmbeded);
 
 }
