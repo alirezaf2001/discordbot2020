@@ -9,7 +9,7 @@ client.user.setActivity("-help");
 client.on('ready', () =>{
     console.log('This bot is online!');
 	bot.user.setStatus('available');
-	bot.user.setActivity("-help");
+	//bot.user.setActivity("-help");
 	    bot.user.setPresence({
         game: {
             name: 'with depression',
