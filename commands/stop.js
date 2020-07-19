@@ -7,8 +7,8 @@ exports.run = (client , message , args , ops) => {
     );
 
     let fetched = ops.active.get(message.guild.id);
-
-    for (let i = 1; i < fetched.queue.length; i++) {
+    let arraylength = fetched.queue.length;
+    for (let i = 1; i < arraylength; i++) {
         fetched.queue.shift();
     }
 
