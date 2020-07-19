@@ -12,7 +12,7 @@ exports.run = (client, message, args , ops) =>{
     }
     let resp = commands[0];
     for (let index = 1; index < commands.lenght+1; index++) {
-        resp += commands[index];
+        resp += `${commands[index]}`;
     }
 
     message.channel.send(resp);
