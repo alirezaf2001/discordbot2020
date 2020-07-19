@@ -2,13 +2,15 @@ const ytdl = require('ytdl-core');
 
 exports.run = async (client , message, args , ops )=>{
 
-    if (!message.member.voice.channel)
-      return
+    if (!message.member.voice.channel){
         const notinvoicechannelEmbaded = new Discord.MessageEmbed()
       .setColor('#cc0c0c')
       .setDescription("Get in the GOD FUCKING DAMN VOICE CHANNEL YOU DUMB DUMB :/");
-      message.channel.send(notinvoicechannelEmbaded);
-      const urlerrEmbeded = new Discord.MessageEmbed()
+          message.channel.send(notinvoicechannelEmbaded);
+          return;
+    }
+
+    const urlerrEmbeded = new Discord.MessageEmbed()
     .setColor('#cc0c0c')
     .setDescription('Please put a url to the video after the command.');
 
