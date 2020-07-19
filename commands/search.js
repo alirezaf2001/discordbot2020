@@ -1,5 +1,5 @@
 const search = require('yt-search');
-
+const Discord = require('discord.js');
 exports.run = (client , message , args , ops) =>{
    
 search(args.join('') , function(err , res){
