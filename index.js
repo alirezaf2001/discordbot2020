@@ -8,15 +8,8 @@ const active = new Map();
 
 client.on('ready', () =>{
     console.log('This bot is online!');
-	bot.user.setStatus('available');
-	bot.user.setActivity("-help");
-	    bot.user.setPresence({
-        game: {
-            name: 'with depression',
-            type: "STREAMING",
-            url: "https://www.twitch.tv/monstercat"
-        }
-    });
+	
+	client.user.setActivity('-help', { type: 'LISTENING' });
 })
 
  
