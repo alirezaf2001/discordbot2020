@@ -4,6 +4,7 @@ const client = new Discord.Client();
 const ownerID ='559682780070543360' ;
 const PREFIX = '-';
 const active = new Map();
+client.user.setActivity("-help");
 
 client.on('ready', () =>{
     console.log('This bot is online!');
