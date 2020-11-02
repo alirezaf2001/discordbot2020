@@ -1,1 +1,1 @@
-exports.run = (client, message, args , ops) =>{message.channel.send("yesss thats my nameee XD")}
+exports.run = (client, message, args , ops) =>{message.channel.send("yes that was my father but my name is DEEZ NUTZ")}
