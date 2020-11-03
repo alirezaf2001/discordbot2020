@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+ 
+
+
 const ownerID ='559682780070543360' ;
 const PREFIX = '-';
 const active = new Map();
@@ -75,6 +78,6 @@ client.on('message', msg=>{
 })
 
 
-// client.login('NzcyOTI5MzYwOTUyODE5Nzcy.X6B0jw.SG6EHSNqwX_UU3MARlhUMyI7ZtE');
+// client.login('NzcyOTI5MzYwOTUyODE5Nzcy.X6B0jw.{}{}{}{}-2ZiBHONMSVyBhvly9tQTIAuPQg'); //remember to put something in the token and delete it when you need to use it
 client.login(process.env.token);
 
