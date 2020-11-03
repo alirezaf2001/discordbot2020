@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord-player": "^3.0.0",
-    "discord-ytdl-core": "^4.1.3",
+    "discord-ytdl-core": "^2.0.1",
     "discord.js": "^12.4.1",
     "merge-options": "^3.0.3",
     "moment": "^2.29.1",
