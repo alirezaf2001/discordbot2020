@@ -74,7 +74,7 @@ client.on('message', msg=>{
         {
         if(message.includes('send')){
           const nthline = require('nthline'),
-          filePath = 'temp.txt',
+          filePath = './message/send.txt',
           rowIndex = between(0,5)
           nthline(rowIndex, filePath).then(line => msg.reply(line))
         
