@@ -2,12 +2,14 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
  
-
-
 const ownerID ='559682780070543360' ;
 const PREFIX = '-';
 const active = new Map();
 
+function between(min, max){
+  return Math.floor(Math.random() * (max - min +1) + min)
+};
+   
 
 client.on('ready', () =>{
     console.log('This bot is online!');
@@ -71,7 +73,11 @@ client.on('message', msg=>{
         else
         {
         if(message.includes('send')){
-            msg.reply("SEND NUDES ;)");
+          const nthline = require('nthline'),
+          filePath = 'temp.txt',
+          rowIndex = between(0,5)
+          nthline(rowIndex, filePath).then(line => msg.reply(line))
+        
             }
         }
     
