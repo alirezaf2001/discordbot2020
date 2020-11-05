@@ -49,7 +49,10 @@ client.on('message', msg=>{
         var message = msg.content;
         message = message.toLowerCase();
         if((message.includes('who is the good boy'))){
-            msg.reply("I AM XD WOOF WOOF");
+          const nthline = require('nthline'),
+          filePath = './message/goodboy.txt',
+          rowIndex = between(0,7)
+          nthline(rowIndex, filePath).then(line => msg.reply(line))
     
         }
       }catch (e){
@@ -61,7 +64,10 @@ client.on('message', msg=>{
         var message = msg.content;
         message = message.toLowerCase();
         if((message.includes('funny'))){
-            msg.reply("Your ass is funnny");
+          const nthline = require('nthline'),
+          filePath = './message/funny.txt',
+          rowIndex = between(0,5)
+          nthline(rowIndex, filePath).then(line => msg.reply(line))
     
         }
 })
@@ -75,7 +81,7 @@ client.on('message', msg=>{
         if(message.includes('send')){
           const nthline = require('nthline'),
           filePath = './message/send.txt',
-          rowIndex = between(0,5)
+          rowIndex = between(0,6)
           nthline(rowIndex, filePath).then(line => msg.reply(line))
         
             }
