@@ -48,6 +48,7 @@ client.on('message', msg=>{
   try{
         var message = msg.content;
         message = message.toLowerCase();
+        if (msg.author.bot) return;
         if((message.includes('who is the good boy'))){
           const nthline = require('nthline'),
           filePath = './message/goodboy.txt',
@@ -63,6 +64,7 @@ client.on('message', msg=>{
     client.on('message', msg=>{
         var message = msg.content;
         message = message.toLowerCase();
+        if (msg.author.bot) return;
         if((message.includes('funny'))){
           const nthline = require('nthline'),
           filePath = './message/funny.txt',
