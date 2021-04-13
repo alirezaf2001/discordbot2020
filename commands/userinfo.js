@@ -19,7 +19,7 @@ exports.run = async (client , message , args)=> {
     ctx.drawImage(background,0,0,canvas.width,canvas.height);
 
     ctx.beginPath();
-    ctx.arc(100,100,75,0,Math.PI * 2 , true);
+    ctx.arc(150,150,75,0,Math.PI * 2 , true);
     ctx.closePath();
     ctx.clip();
 
