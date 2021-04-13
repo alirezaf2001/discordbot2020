@@ -8,6 +8,7 @@ exports.run = async (client , message , args)=> {
     }else
     {
         var user = message.mentions.users.first() || client.users.cache.get(args[0]);
+        // var victim = message.author;
     }
     var member = message.guild.member(user);
 
@@ -19,13 +20,13 @@ exports.run = async (client , message , args)=> {
     ctx.drawImage(background,0,0,canvas.width,canvas.height);
 
     ctx.beginPath();
-    ctx.arc(425,170,75,0,Math.PI * 2 , true);
+    ctx.arc(350,95,75,0,Math.PI * 2 , true);
     ctx.closePath();
     ctx.clip();
 
 
     const avatar = await Canvas.loadImage(user.displayAvatarURL({format : "jpg"}))
-    ctx.drawImage(avatar,350,95,150,150);
+    ctx.drawImage(avatar,275,20,150,150);
 
     const final = new Discord.MessageAttachment(canvas.toBuffer(),"userSlap.png");
 
