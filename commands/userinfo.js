@@ -12,7 +12,7 @@ exports.run = (client , message , args)=> {
     var member = message.guild.member(user);
 
     const canvas = Canvas.createCanvas(500,200);
-    const ctx = Canvas.getContext("2d");
+    const ctx = canvas.getContext("2d");
 
     const background = Canvas.loadImage("https://i.pinimg.com/564x/40/ab/fb/40abfb383ab6502ab3f72ea3b20feb00.jpg")
 
