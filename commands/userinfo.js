@@ -25,7 +25,7 @@ exports.run = async (client , message , args)=> {
 
 
     const avatar = await Canvas.loadImage(user.displayAvatarURL({format : "jpg"}))
-    ctx.drawImage(avatar,350,95,150,150);
+    ctx.drawImage(avatar,25,50,150,150);
 
     const final = new Discord.MessageAttachment(canvas.toBuffer(),"userSlap.png");
 
