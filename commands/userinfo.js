@@ -11,10 +11,10 @@ exports.run = async (client , message , args)=> {
     }
     var member = message.guild.member(user);
 
-    const canvas = await Canvas.createCanvas(500,200);
+    const canvas = Canvas.createCanvas(500,200);
     const ctx = canvas.getContext("2d");
 
-    const background = Canvas.loadImage("slap.jpg")
+    const background = await Canvas.loadImage("slap.jpg")
 
     ctx.drawImage(background,0,0,canvas.width,canvas.height);
 
