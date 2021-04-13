@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
  
 const ownerID ='559682780070543360' ;
-const PREFIX = '-';
+const PREFIX = '*';
 const active = new Map();
 
 function between(min, max){
@@ -14,7 +14,7 @@ function between(min, max){
 client.on('ready', () =>{
     console.log('This bot is online!');
 	
-	client.user.setActivity('-help', { type: 'LISTENING' });
+	client.user.setActivity('*help', { type: 'LISTENING' });
 })
 
  

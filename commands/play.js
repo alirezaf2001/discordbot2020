@@ -26,7 +26,7 @@ exports.run = async (client , message, args , ops )=>{
 
 
 }
-
+    try{
     let info = await ytdl.getInfo(args[0]);
     let data = ops.active.get(message.guild.id) || {};
 
@@ -49,7 +49,10 @@ exports.run = async (client , message, args , ops )=>{
     }
 
     ops.active.set(message.guild.id, data);
-
+    }
+    catch(e){
+        message.channel.send(`\`${e}\``);
+    }
 }
 
 async function play(client , ops , data){
