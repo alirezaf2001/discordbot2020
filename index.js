@@ -77,7 +77,7 @@ client.on('message', msg=>{
     var message = msg.content;
     message = message.toLowerCase();
     if (msg.author.bot) return;
-        if(message.includes('-')){return}
+        if(message.includes('*')){return}
         else
         {
         if(message.includes('send')){
