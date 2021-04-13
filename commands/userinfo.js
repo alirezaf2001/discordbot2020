@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const Canvas = require("canvas");
 
-exports.run = (client , message , args)=> {
+exports.run = async (client , message , args)=> {
     if(!args[0])
     {
         var user = message.author;
@@ -11,7 +11,7 @@ exports.run = (client , message , args)=> {
     }
     var member = message.guild.member(user);
 
-    const canvas = Canvas.createCanvas(500,200);
+    const canvas = await Canvas.createCanvas(500,200);
     const ctx = canvas.getContext("2d");
 
     const background = Canvas.loadImage("slap.jpg")
@@ -24,7 +24,7 @@ exports.run = (client , message , args)=> {
     ctx.clip();
 
 
-    const avatar = Canvas.loadImage(user.displayAvatarURL({format : "jpg"}))
+    const avatar = await Canvas.loadImage(user.displayAvatarURL({format : "jpg"}))
     ctx.drawImage(avatar,25,25,150,150);
 
     const final = new Discord.MessageAttachment(canvas.toBuffer(),"userSlap.png");
