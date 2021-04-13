@@ -5,6 +5,7 @@ exports.run = async (client , message , args)=> {
     if(!args[0])
     {
         var user = message.author;
+        var victim = message.author;
     }else
     {
         var user = message.mentions.users.first() || client.users.cache.get(args[0]);
@@ -24,8 +25,7 @@ exports.run = async (client , message , args)=> {
 
 
     const avatarUser = await Canvas.loadImage(user.displayAvatarURL({format : "jpg"}))
-    if(args[0])
-        const avatarVictim = await Canvas.loadImage(victim.displayAvatarURL({format : "jpg"}))
+    const avatarVictim = await Canvas.loadImage(victim.displayAvatarURL({format : "jpg"}))
     ctx.drawImage(avatarUser,275,20,150,150);
     ctx.drawImage(avatarVictim,20,20,150,150);
     
