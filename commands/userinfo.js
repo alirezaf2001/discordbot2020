@@ -14,7 +14,7 @@ exports.run = (client , message , args)=> {
     const canvas = Canvas.createCanvas(500,200);
     const ctx = Canvas.getContext("2d");
 
-    const background = await Canvas.loadImage("https://i.pinimg.com/564x/40/ab/fb/40abfb383ab6502ab3f72ea3b20feb00.jpg")
+    const background = Canvas.loadImage("https://i.pinimg.com/564x/40/ab/fb/40abfb383ab6502ab3f72ea3b20feb00.jpg")
 
     ctx.drawImage(background,0,0,canvas.width,canvas.height);
 
@@ -24,7 +24,7 @@ exports.run = (client , message , args)=> {
     ctx.clip();
 
 
-    const avatar = await Canvas.loadImage(user.displayAvatarURL({format : "jpg"}))
+    const avatar = Canvas.loadImage(user.displayAvatarURL({format : "jpg"}))
     ctx.drawImage(avatar,25,25,150,150);
 
     const final = new Discord.MessageAttachment(canvas.toBuffer(),"userSlap.png");
